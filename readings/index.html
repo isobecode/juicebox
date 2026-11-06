@@ -3,71 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Page</title>
-  <style>
-    body {
-      font-family: Georgia, serif;
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #222;
-      background: #fafaf7;
-      line-height: 1.6;
-    }
-    h1 { margin-bottom: 30px; }
+  <title>Reading</title>
+  <link rel="stylesheet" href="../style.css">
 
+  <!-- Only styles the expandable sections. Fonts and colours come from style.css -->
+  <style>
     details {
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.3);
       padding: 12px 0;
     }
     summary {
-      font-size: 1.2em;
-      font-weight: bold;
       cursor: pointer;
       list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      font-weight: bold;
     }
     summary::-webkit-details-marker { display: none; }
-    summary::before {
+    summary .title::before {
       content: "+";
       display: inline-block;
       width: 1.2em;
-      color: #888;
+      opacity: 0.5;
     }
-    details[open] summary::before { content: "−"; }
-    summary:hover { color: #555; }
-
-    .content {
-      padding: 10px 0 5px 1.2em;
+    details[open] summary .title::before { content: "−"; }
+    summary .date {
+      font-weight: normal;
+      opacity: 0.6;
+      white-space: nowrap;
+      font-size: 0.9em;
+    }
+    .entry {
+      padding: 8px 0 4px 1.2em;
+    }
+    .entry .source {
+      font-size: 0.9em;
+      opacity: 0.7;
+      margin: 0 0 8px 0;
     }
   </style>
 </head>
 <body>
 
-  <h1>My Page</h1>
+  <a href="../index.html" class="back">← Home</a>
 
-  <!-- ===== COPY FROM HERE ===== -->
-  <details>
-    <summary>First title</summary>
-    <div class="content">
-      <p>Write your comments here.</p>
-      <p>You can add as many paragraphs as you like.</p>
-    </div>
-  </details>
-  <!-- ===== TO HERE to add a new section ===== -->
+  <article>
+    <h1>Reading</h1>
+    <p class="meta">Articles, blogs, PDFs and papers I've read, in reverse chronological order. Click a title to see my notes.</p>
 
-  <details>
-    <summary>Second title</summary>
-    <div class="content">
-      <p>More comments go here.</p>
-    </div>
-  </details>
+    <br>
 
-  <details>
-    <summary>Third title</summary>
-    <div class="content">
-      <p>And here.</p>
-    </div>
-  </details>
+    <!--
+      Add an entry for each thing you read: copy one <details> block and fill it in.
+      - The date goes in <span class="date">
+      - The link goes in href="..." (if there's no link, delete the whole <p class="source"> line
+        or just leave the type, like: <p class="source">Book</p>)
+    -->
+
+    <!-- ===== EXAMPLE WITH A LINK ===== -->
+    <details>
+      <summary>
+        <span class="title">Title of the article</span>
+        <span class="date">Nov 2026</span>
+      </summary>
+      <div class="entry">
+        <p class="source">Article · <a href="https://example.com" target="_blank">Read it ↗</a></p>
+        <p>My comments go here.</p>
+        <p>Another paragraph of comments.</p>
+      </div>
+    </details>
+
+    <!-- ===== EXAMPLE: RESEARCH PAPER ===== -->
+    <details>
+      <summary>
+        <span class="title">Name of the paper</span>
+        <span class="date">Oct 2026</span>
+      </summary>
+      <div class="entry">
+        <p class="source">Paper · Author names · <a href="https://example.com/paper.pdf" target="_blank">PDF ↗</a></p>
+        <p>My comments go here.</p>
+      </div>
+    </details>
+
+    <!-- ===== EXAMPLE WITHOUT A LINK ===== -->
+    <details>
+      <summary>
+        <span class="title">Blog post with no link</span>
+        <span class="date">Sep 2026</span>
+      </summary>
+      <div class="entry">
+        <p class="source">Blog</p>
+        <p>My comments go here.</p>
+      </div>
+    </details>
+
+  </article>
 
 </body>
 </html>
