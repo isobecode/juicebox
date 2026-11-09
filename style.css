@@ -64,6 +64,16 @@ header {
   margin-bottom: 0;
 }
 
+.quote-block {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 0.8em 1em;
+  border-radius: 6px;
+  white-space: pre-wrap;  /* wraps long lines */
+  overflow-x: auto;
+}
+
 section {
   margin-bottom: 3rem;
 }
